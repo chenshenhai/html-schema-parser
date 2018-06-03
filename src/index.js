@@ -1,4 +1,4 @@
-import parser from './lib/parser'
+const parser = require('./lib/parser')
 
 const SCHEMA = Symbol('_schema_')
 
@@ -23,4 +23,4 @@ if (window && typeof window.define === 'function' && window.define.amd) {
   module.exports = HtmlSchemaParser
 }
 
-export default HtmlSchemaParser
+module.exports = HtmlSchemaParser

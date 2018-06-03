@@ -1,4 +1,4 @@
-console.log('dev env')
+const SchemaParser = require('./../../src/index');
 
 const schema = [
   {
@@ -33,7 +33,7 @@ const schema = [
   }
 ]
 
-let scheamParser = new HtmlSchemaParser(schema);
+let scheamParser = new SchemaParser(schema);
 let htmlStr = scheamParser.getHtml();
 
 const $body = document.querySelector('body');

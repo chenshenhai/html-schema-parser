@@ -1,6 +1,6 @@
-import tags from './tags'
-import { isJSON, isArray, isString } from './is-type'
-import util from './util'
+const tags = require('./tags')
+const { isJSON, isArray, isString } = require('./is-type')
+const util = require('./util')
 
 function parseContent (content) {
   let html = ''
@@ -69,4 +69,4 @@ const parser = {
 
 }
 
-export default parser
+module.exports = parser

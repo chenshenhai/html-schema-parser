@@ -37,7 +37,7 @@ function isNull (data) {
   return getPrototype(data) === 'Null'
 }
 
-export {
+module.exports = {
   isString,
   isNumber,
   isNull,

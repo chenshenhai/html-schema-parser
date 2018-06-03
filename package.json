@@ -1,9 +1,9 @@
 {
   "name": "html-schema-parser",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A HTML parser based on schema",
   "author": "chenshenhai <cshenhai@gmail.com>",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",

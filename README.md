@@ -7,6 +7,8 @@
 
 ### Usage
 
+#### Node Usage
+
 ```sh
 npm install --save http-schema-parser
 ```
@@ -50,6 +52,18 @@ let htmlStr = scheamParser.getHtml();
 
 const $body = document.querySelector('body');
 $body.innerHTML = htmlStr;
+```
+
+#### Browser Usage
+```html
+<script src="html-schema-parser.js"></script>
+<script>
+  // Code ...
+  var HtmlSchemaParser = window.HtmlSchemaParser;
+  var scheamParser = new HtmlSchemaParser(schema);
+  var html = scheamParser.getHtml();
+
+</script>
 ```
 
 ### Instructions
@@ -69,7 +83,9 @@ $body.innerHTML = htmlStr;
 基于schema格式的HTML解析器
 > 参考源码自 [https://github.com/caolan/pithy](https://github.com/caolan/pithy)
 
-### 使用方式
+### 使用说明
+
+#### Node 使用方式
 
 ```sh
 npm install --save http-schema-parser
@@ -115,6 +131,17 @@ let htmlStr = scheamParser.getHtml();
 const $body = document.querySelector('body');
 $body.innerHTML = htmlStr;
 ```
+
+#### 浏览器使用方式
+```html
+<script src="html-schema-parser.js"></script>
+<script>
+  // Code ...
+  var HtmlSchemaParser = window.HtmlSchemaParser;
+  var scheamParser = new HtmlSchemaParser(schema);
+  var html = scheamParser.getHtml();
+
+</script>
 
 ### 说明
 

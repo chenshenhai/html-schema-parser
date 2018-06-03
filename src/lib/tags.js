@@ -28,7 +28,7 @@ const notClosingTags = {
   'embed': true
 }
 
-export default {
+module.exports = {
   legalTags,
   notClosingTags
 }
