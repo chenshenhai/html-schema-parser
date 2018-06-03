@@ -142,6 +142,7 @@ $body.innerHTML = htmlStr;
   var html = scheamParser.getHtml();
 
 </script>
+```
 
 ### 说明
 
