@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "demo",
   "author": "chenshenhai <cshenhai@gmail.com>",
-  "private": true,
   "main": "dist/index.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
