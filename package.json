@@ -1,6 +1,6 @@
 {
   "name": "http-schema-parser",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "demo",
   "author": "chenshenhai <cshenhai@gmail.com>",
   "main": "dist/index.js",
