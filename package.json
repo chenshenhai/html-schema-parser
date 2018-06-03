@@ -1,6 +1,6 @@
 {
-  "name": "http-schema-parser",
-  "version": "0.1.1",
+  "name": "html-schema-parser",
+  "version": "0.2.0",
   "description": "A HTML parser based on schema",
   "author": "chenshenhai <cshenhai@gmail.com>",
   "main": "dist/index.js",
