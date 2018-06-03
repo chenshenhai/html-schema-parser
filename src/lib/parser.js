@@ -1,5 +1,6 @@
 import tags from './tags';
 import { isJSON, isArray, isString } from './is-type';
+import util from './util';
 
 function parseContent( content ) {
   let html = '';
@@ -17,6 +18,25 @@ function parseContent( content ) {
   return html;
 }
 
+
+function parseAttribute( attribute ) {
+  let attrStr = '';
+  if( isJSON(attribute) !== true ) {
+    return attrStr;
+  }
+  let keyList = Object.keys(attribute);
+  let attrList = [];
+  for( let i=0; i<keyList.length; i++ ) {
+    let keyName = keyList[i];
+    let val = attribute[keyName];
+    if( isString( val ) === true ) {
+      attrList.push(`${keyName}="${util.escape(val)}"`);
+    }
+  }
+  attrStr = attrList.join('  ');
+  return attrStr;
+}
+
 function parseTag( schema ) {
   let html = '';
   if( isJSON(schema) !== true ) {
@@ -27,10 +47,11 @@ function parseTag( schema ) {
   if( tags.legalTags.indexOf(tag) < 0 ) {
     tag = 'div';
   }
+  const attrStr = parseAttribute(schema.attribute)
   if( tags.notClosingTags[tag] === true ) {
-    html = `<${tag}  />`
+    html = `<${tag} ${attrStr} />`
   } else {
-    html = `<${tag}>${parseContent(content)}</${tag}>`;
+    html = `<${tag} ${attrStr} >${parseContent(content)}</${tag}>`;
   }
   return html;
 }

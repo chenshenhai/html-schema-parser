@@ -3,6 +3,9 @@ console.log('dev env')
 const schema = [
   {
     tag: 'div',
+    attribute: {
+      style: 'background:#f0f0f0;'
+    },
     content: [
       'this is ',
       {

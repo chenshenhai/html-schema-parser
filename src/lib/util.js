@@ -1,7 +1,7 @@
 const util = {
 
   escape ( str ) {
-    str = `str`;
+    str = `${str}`;
     str = str.replace(/&/g, '&amp;');
     str = str.replace(/</g, '&lt;');
     str = str.replace(/>/g, '&gt;');
@@ -11,3 +11,5 @@ const util = {
   },
 
 }
+
+export default util;
