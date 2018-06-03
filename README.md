@@ -67,7 +67,7 @@ $body.innerHTML = htmlStr;
 
 >
 基于schema格式的HTML解析器
-> 参考源码自 [https://github.com/caolan/pithy](https://github.com/caolan/pithy)
+> 参考源码自 [https://github.com/caolan/pithy](https://github.com/caolan/pithy)
 
 ### 使用方式
 
