@@ -1,75 +1,72 @@
-import tags from './tags';
-import { isJSON, isArray, isString } from './is-type';
-import util from './util';
+import tags from './tags'
+import { isJSON, isArray, isString } from './is-type'
+import util from './util'
 
-function parseContent( content ) {
-  let html = '';
-  if( isArray(content) !== true ) {
-    return html;
+function parseContent (content) {
+  let html = ''
+  if (isArray(content) !== true) {
+    return html
   }
-  for( let i=0; i<content.length; i++ ) {
-    const item = content[i];
-    if ( isJSON(item) === true ) {
-      html += parseTag(item);
-    } else if ( isString(item) ) {
-      html += item;
+  for (let i = 0; i < content.length; i++) {
+    const item = content[i]
+    if (isJSON(item) === true) {
+      html += parseTag(item)
+    } else if (isString(item)) {
+      html += item
     }
   }
-  return html;
+  return html
 }
 
-
-function parseAttribute( attribute ) {
-  let attrStr = '';
-  if( isJSON(attribute) !== true ) {
-    return attrStr;
+function parseAttribute (attribute) {
+  let attrStr = ''
+  if (isJSON(attribute) !== true) {
+    return attrStr
   }
-  let keyList = Object.keys(attribute);
-  let attrList = [];
-  for( let i=0; i<keyList.length; i++ ) {
-    let keyName = keyList[i];
-    let val = attribute[keyName];
-    if( isString( val ) === true ) {
-      attrList.push(`${keyName}="${util.escape(val)}"`);
+  let keyList = Object.keys(attribute)
+  let attrList = []
+  for (let i = 0; i < keyList.length; i++) {
+    let keyName = keyList[i]
+    let val = attribute[keyName]
+    if (isString(val) === true) {
+      attrList.push(`${keyName}="${util.escape(val)}"`)
     }
   }
-  attrStr = attrList.join('  ');
-  return attrStr;
+  attrStr = attrList.join('  ')
+  return attrStr
 }
 
-function parseTag( schema ) {
-  let html = '';
-  if( isJSON(schema) !== true ) {
-    return html;
+function parseTag (schema) {
+  let html = ''
+  if (isJSON(schema) !== true) {
+    return html
   }
-  let tag = schema.tag || 'div';
-  const content = schema.content;
-  if( tags.legalTags.indexOf(tag) < 0 ) {
-    tag = 'div';
+  let tag = schema.tag || 'div'
+  const content = schema.content
+  if (tags.legalTags.indexOf(tag) < 0) {
+    tag = 'div'
   }
   const attrStr = parseAttribute(schema.attribute)
-  if( tags.notClosingTags[tag] === true ) {
+  if (tags.notClosingTags[tag] === true) {
     html = `<${tag} ${attrStr} />`
   } else {
-    html = `<${tag} ${attrStr} >${parseContent(content)}</${tag}>`;
+    html = `<${tag} ${attrStr} >${parseContent(content)}</${tag}>`
   }
-  return html;
+  return html
 }
 
 const parser = {
 
-  parseSchema( schema ) {
-    let html = '';
-    if ( isJSON(schema) ) {
-      html = parseTag(schema);
-    } else if ( isArray(schema) ) {
-      html = parseContent(schema);
+  parseSchema (schema) {
+    let html = ''
+    if (isJSON(schema)) {
+      html = parseTag(schema)
+    } else if (isArray(schema)) {
+      html = parseContent(schema)
     }
-    return html;
-  },
+    return html
+  }
 
+}
 
-};
-
-export default parser;
-
+export default parser

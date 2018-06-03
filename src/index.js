@@ -1,28 +1,26 @@
-import parser from './lib/parser';
+import parser from './lib/parser'
 
-const SCHEMA = Symbol('_schema_');
+const SCHEMA = Symbol('_schema_')
 
 class HtmlSchemaParser {
-  constructor( schema, opt ) {
-    this[SCHEMA] = schema;
+  constructor (schema, opt) {
+    this[SCHEMA] = schema
   }
 
-  getHtml() {
+  getHtml () {
     return parser.parseSchema(this[SCHEMA])
   }
 }
 
-
-if( window && !window.HtmlSchemaParser ) {
-  window.HtmlSchemaParser = HtmlSchemaParser;
+if (window && !window.HtmlSchemaParser) {
+  window.HtmlSchemaParser = HtmlSchemaParser
 }
-if( typeof define === 'function' && define.amd ) {
-  define('HtmlSchemaParser', function(){
-    return HtmlSchemaParser;
+if (window && typeof window.define === 'function' && window.define.amd) {
+  window.define('HtmlSchemaParser', function () {
+    return HtmlSchemaParser
   })
-} else if( module && module.exports ) {
-  module.exports = HtmlSchemaParser;
+} else if (module && module.exports) {
+  module.exports = HtmlSchemaParser
 }
 
-
-export default HtmlSchemaParser;
+export default HtmlSchemaParser
