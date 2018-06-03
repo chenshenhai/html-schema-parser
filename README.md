@@ -1,4 +1,4 @@
-# http-schema-parser
+# html-schema-parser
 
 ## Document
 
